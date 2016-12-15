@@ -267,11 +267,18 @@ $('#payment')
             $(".activities legend").append($activitiesError);
             valid = false;
         }
+
+        return valid;
     };
 
 
 // Event handler for the submit button. Call validate() and prevent form submission.
     $("button[type='submit']").click(function(e) {
-        validate();
-        e.preventDefault(); //prevent default form submission
+        if(!validate()) {
+            e.preventDefault(); //prevent default form submission
+        }
+        else {
+            alert("Thank you. You have been registered"); //verify that the form has been submitted
+        }
+        
     });
